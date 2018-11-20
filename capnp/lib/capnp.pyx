@@ -1738,6 +1738,10 @@ def wait_forever():
     cdef _EventLoop loop = C_DEFAULT_EVENT_LOOP_GETTER()
     helpers.waitNeverDone(deref(loop.thisptr).waitScope)
 
+def poll_event_loop():
+    cdef _EventLoop loop = C_DEFAULT_EVENT_LOOP_GETTER()
+    deref(loop.thisptr).waitScope.poll()
+
 cdef class _CallContext:
     cdef CallContext * thisptr
 

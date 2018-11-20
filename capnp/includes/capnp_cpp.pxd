@@ -130,7 +130,7 @@ cdef extern from "kj/async-io.h" namespace " ::kj":
     cdef cppclass AsyncIoProvider:
         pass
     cdef cppclass WaitScope:
-        pass
+        void poll()
     cdef cppclass AsyncIoContext:
         AsyncIoContext(AsyncIoContext&)
         Own[LowLevelAsyncIoProvider] lowLevelProvider
